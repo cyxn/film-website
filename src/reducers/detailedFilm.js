@@ -9,7 +9,11 @@ const initialState = {
 export default function detailedFilm(state = initialState, action) {
   switch (action.type) {
     case FILM_DETAIL:
-      return {...state, isFetching: true, dataReady: false}
+      return {
+        ...state,
+        isFetching: true,
+        dataReady: false
+      }
     case RECEIVE_DETAILED:
       return Object.assign({}, state, {
         isFetching: false,

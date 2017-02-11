@@ -1,21 +1,13 @@
 import React from 'react';
 import './FilmsList.sass';
 import Movie from './Movie';
-import MDSpinner from 'react-md-spinner';
+import MySpinner from './MySpinner';
 import InfiniteScroll from 'react-infinite-scroller';
 //import { Link } from 'react-router';
 
 
 const FilmsList = ({movies, dataReady, page, RequestActions, ...rest}) => {
 
-  const MySpinner = () => (
-    <div className='movies-list'>
-      <MDSpinner
-          className='spinner'
-          size='55'
-          singleColor='rgb(66, 165, 245)'/>
-    </div>
-  )
   page = page || 0;
   return (
     <InfiniteScroll

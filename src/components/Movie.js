@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardImage, Heading, Text } from 'rebass';
 import './Movie.sass';
 import { Link } from 'react-router';
+import FavoriteButton from './FavoriteButton'
 import taboo from '../img/taboo.jpg';
 
 //TODO: image should be taken from props
@@ -15,24 +16,6 @@ const Movie = (props) => {
     marginRight: '15px',
     marginBottom: '50px'
   };
-  const inFavorites = () => {
-    return favorites
-      .map(item => item.id)
-      .includes(movie.id)
-  }
-  const favBtnClass =
-    (inFavorites()) ?
-    'favorite-button fav-added' :
-    'favorite-button';
-
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const a = inFavorites();
-    console.log(a, 'true = remove, false = add');
-    (a) ? removeFavorites(movie.id) : addFavorites(movie.id)
-  }
 
   const filterGenres = (item, i, array) => {
     const index = movie.genre_ids.indexOf(item.id);
@@ -45,14 +28,15 @@ const Movie = (props) => {
       .map(item => item.name)
       .join(', ');
 
-
   return (
     <Card style={CardStyle} width={180}>
       <Link to={singleFilmLink} className='single-movie'>
         <div className='single-movie-image'>
-          <div onClick={handleClick} className={favBtnClass}>
-            <div className='favorite-icon'></div>
-          </div>
+          <FavoriteButton
+              favorites={favorites}
+              movie={movie}
+              addFavorites={addFavorites}
+              removeFavorites={removeFavorites} />
           <div className='play-button'>
             <div className='play-icon'></div>
           </div>

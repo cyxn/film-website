@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MovieDetailed from '../components/MovieDetailed';
 import * as RequestActions from '../actions/RequestActions';
+import * as FilmsListActions from '../actions/FilmsListActions';
 
 class SingleFilm extends Component {
   componentDidMount() {
@@ -17,13 +18,15 @@ class SingleFilm extends Component {
 
 function mapStateToProps(state) {
   return {
-    currentFilm: state.detailedFilm.currentFilm
+    currentFilm: state.detailedFilm.currentFilm,
+    favorites: state.page.favoritesList
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    RequestActions: bindActionCreators(RequestActions, dispatch)
+    RequestActions: bindActionCreators(RequestActions, dispatch),
+    FilmsListActions: bindActionCreators(FilmsListActions, dispatch)
   }
 }
 
