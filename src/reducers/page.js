@@ -7,13 +7,17 @@ const initialState = {
 }
 
 export default function page(state = initialState, action) {
+
+  const indexById = (id = action.id, filmsArr = action.filmsArr) => {
+    return filmsArr.map(item => item.id).indexOf(id);
+  }
   switch (action.type) {
     case ADD_FAVORITES:
-      const newFavList = [...state.favoritesList, action.id];
+      const newFavList = [...state.favoritesList, action.filmsArr[indexById()]];
       localStorage.setItem('favoritesList', JSON.stringify(newFavList));
       return {...state, favoritesList: newFavList};
     case REMOVE_FAVORITES:
-      const index = state.favoritesList.indexOf(action.id);
+      const index = indexById(action.id, state.favoritesList);
       const newFavList2 = [
         ...state.favoritesList.slice(0, index),
         ...state.favoritesList.slice(index + 1)
@@ -23,7 +27,6 @@ export default function page(state = initialState, action) {
         ...state,
         favoritesList: newFavList2
       }
-
     default:
       return state;
   }

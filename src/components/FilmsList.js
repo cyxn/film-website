@@ -8,7 +8,6 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 const FilmsList = ({movies, dataReady, page, RequestActions, ...rest}) => {
 
-  //NOTE: maybe change spinner to react-redux-loading-bar
   const MySpinner = () => (
     <div className='movies-list'>
       <MDSpinner
@@ -28,7 +27,7 @@ const FilmsList = ({movies, dataReady, page, RequestActions, ...rest}) => {
 
         <div className='movies-list'>
           {movies.map((item, i) => {
-            return <Movie movie={item} key={i} {...rest} />
+            return <Movie movie={item} key={i} RequestActions={RequestActions} {...rest} />
           })}
         </div>
         {!dataReady && <MySpinner />}

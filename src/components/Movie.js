@@ -8,7 +8,6 @@ import taboo from '../img/taboo.jpg';
 const Movie = (props) => {
   const {movie, genres, favorites, FilmsListActions} = props;
   const {addFavorites, removeFavorites} = FilmsListActions;
-  const inFavorites = favorites.includes(movie.id);
   const singleFilmLink = `/view/${movie.id}`;
   const CardStyle = {
     border: 'none',
@@ -16,14 +15,23 @@ const Movie = (props) => {
     marginRight: '15px',
     marginBottom: '50px'
   };
+  const inFavorites = () => {
+    return favorites
+      .map(item => item.id)
+      .includes(movie.id)
+  }
   const favBtnClass =
-    (inFavorites) ?
+    (inFavorites()) ?
     'favorite-button fav-added' :
     'favorite-button';
 
+
   const handleClick = (e) => {
     e.preventDefault();
-    (inFavorites) ? removeFavorites(movie.id) : addFavorites(movie.id)
+    e.stopPropagation();
+    const a = inFavorites();
+    console.log(a, 'true = remove, false = add');
+    (a) ? removeFavorites(movie.id) : addFavorites(movie.id)
   }
 
   const filterGenres = (item, i, array) => {
