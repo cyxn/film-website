@@ -10,9 +10,6 @@ const Logo = () => (
 )
 
 const AppBarHeader = () => {
-  const handleSearch = (event) => {
-    console.log(event.target.value); //TODO: do normal search
-  }
   return (
     <div className='header'>
       <div className='header-container'>

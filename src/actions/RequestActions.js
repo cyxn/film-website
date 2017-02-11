@@ -6,7 +6,7 @@ import {
 
 export function requestFilms() {
   return {
-    type: REQUEST_FILMS,
+    type: REQUEST_FILMS
   }
 }
 
@@ -14,7 +14,7 @@ export function receiveFilms(json, page) {
   return {
     type: RECEIVE_FILMS,
     page,
-    films: json.results.map(item => item),
+    films: json.results.map(item => item)
   }
 }
 

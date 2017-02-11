@@ -43,7 +43,8 @@
 .single-movie:hover .single-movie-image::after
   background: rgba(#000, 0.6)
 
-.single-movie:hover .favorite-button
+.single-movie:hover .favorite-button,
+.single-movie:hover .play-button
   display: block
 
 .fav-added
@@ -51,3 +52,25 @@
     background-position: -30px 5px
   &:hover .favorite-icon
     background-position: -45px 5px
+
+.play-button
+  display: none
+  content: ''
+  border-radius: 50%
+  position: absolute
+  top: 50%
+  left: 50%
+  margin-top: -25px
+  margin-left: -25px
+  width: 50px
+  height: 50px
+  z-index: 3
+  background-color: #fff
+
+.play-icon
+  width: 20px
+  height: 20px
+  margin-top: 15px
+  margin-left: 18px
+  background: url(../img/play.png)
+  background-size: 20px 20px

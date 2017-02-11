@@ -5,7 +5,8 @@ import genres from '../constants/genres';
 
 const initialState = {
   dataReady: false,
-  genres: genres
+  genres: genres,
+  filmsArr: []
 }
 
 export default function films(state = initialState, action) {
@@ -17,7 +18,7 @@ export default function films(state = initialState, action) {
         isFetching: false,
         dataReady: true,
         page: action.page,
-        filmsArr: action.films
+        filmsArr: [...state.filmsArr, ...action.films]
       })
     default:
       return state;

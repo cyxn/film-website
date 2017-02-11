@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 import Header from '../components/Header';
-import FilmsList from '../components/FilmsList';
-import * as FilmsListActions from '../actions/FilmsListActions';
+//import FilmsList from '../components/FilmsList';
+//import * as FilmsListActions from '../actions/FilmsListActions';
 import * as RequestActions from '../actions/RequestActions';
 
 class App extends Component {

@@ -20,6 +20,8 @@ li {
 
 a {
   text-decoration: none;
+  cursor: default;
+  color: inherit;
 }
 
 img {
