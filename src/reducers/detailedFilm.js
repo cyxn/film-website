@@ -19,7 +19,9 @@ export default function detailedFilm(state = initialState, action) {
         isFetching: false,
         dataReady: true,
         id: action.id,
-        currentFilm: action.detailed
+        currentFilm: action.detailed,
+        recommendations: action.recommendations.results,
+        similar: action.similar.results
       })
     default:
       return state;

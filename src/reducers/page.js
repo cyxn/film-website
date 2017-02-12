@@ -15,7 +15,7 @@ export default function page(state = initialState, action) {
   switch (type) {
     case ADD_FAVORITES:
       const newFavList =
-        (filmsArr.length === 0) ?
+        (indexById(id, filmsArr) === -1) ?
           [...state.favoritesList, currentFilm]:
           [...state.favoritesList, filmsArr[indexById(id, filmsArr)]];
       localStorage.setItem('favoritesList', JSON.stringify(newFavList));

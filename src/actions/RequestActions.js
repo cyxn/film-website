@@ -29,21 +29,27 @@ export function fetchFilms(page = 1) {
   }
 }
 
-export function fetchDetailedFilm(id) {
-  const link =
-  `https://api.themoviedb.org/3/movie/${id}?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US`;
+export function fetchDetailedFilm(id, page = 1) {
+  const urls = [
+    `https://api.themoviedb.org/3/movie/${id}?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US`,
+    `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US&page=${page}`,
+    `https://api.themoviedb.org/3/movie/${id}/similar?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US&page=${page}`
+  ]
   return dispatch => {
     dispatch(filmDetail(id))
-    return fetch(link)
-      .then(response => response.json())
-      .then(json => dispatch(receiveDetailedFilm(json, id)))
+    return Promise.all(
+      urls.map(item => fetch(item).then(resolve => resolve.json())
+      )
+    ).then(json => dispatch(receiveDetailedFilm(json, id)))
   }
 }
 
 export function receiveDetailedFilm(json, id) {
   return {
     type: RECEIVE_DETAILED,
-    detailed: json,
+    detailed: json[0],
+    recommendations: json[1],
+    similar: json[2],
     id
   }
 }

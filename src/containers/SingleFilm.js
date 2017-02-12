@@ -14,13 +14,20 @@ class SingleFilm extends Component {
         <MovieDetailed {...this.props}/>
     )
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location !== this.props.location)
+      this.props.RequestActions.fetchDetailedFilm(nextProps.params.id);
+  }
 }
 
 function mapStateToProps(state) {
   return {
     currentFilm: state.detailedFilm.currentFilm,
     favorites: state.page.favoritesList,
-    dataReady: state.detailedFilm.dataReady
+    dataReady: state.detailedFilm.dataReady,
+    recommendations: state.detailedFilm.recommendations,
+    genres: state.films.genres,
+    similar: state.detailedFilm.similar
   }
 }
 
