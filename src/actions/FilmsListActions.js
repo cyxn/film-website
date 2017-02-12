@@ -5,8 +5,10 @@ import {
 export function addFavorites(id) {
   return (dispatch, getState) => {
     const filmsArr = getState().films.filmsArr;
+    const currentFilm = getState().detailedFilm.currentFilm;
     return dispatch({
       type: ADD_FAVORITES,
+      currentFilm,
       filmsArr,
       id
     })

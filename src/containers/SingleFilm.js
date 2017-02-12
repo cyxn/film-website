@@ -19,7 +19,8 @@ class SingleFilm extends Component {
 function mapStateToProps(state) {
   return {
     currentFilm: state.detailedFilm.currentFilm,
-    favorites: state.page.favoritesList
+    favorites: state.page.favoritesList,
+    dataReady: state.detailedFilm.dataReady
   }
 }
 

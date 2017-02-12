@@ -20,7 +20,7 @@ export function receiveFilms(json, page) {
 }
 
 export function fetchFilms(page = 1) {
-  const link = `https://api.themoviedb.org/3/movie/popular?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US&page=${page}`
+  const link = `https://api.themoviedb.org/3/movie/popular?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US&page=${page}`;
   return dispatch => {
     dispatch(requestFilms())
     return fetch(link)
@@ -31,7 +31,7 @@ export function fetchFilms(page = 1) {
 
 export function fetchDetailedFilm(id) {
   const link =
-  ` https://api.themoviedb.org/3/movie/${id}?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US`
+  `https://api.themoviedb.org/3/movie/${id}?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US`;
   return dispatch => {
     dispatch(filmDetail(id))
     return fetch(link)
