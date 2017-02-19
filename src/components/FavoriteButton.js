@@ -1,9 +1,15 @@
 import React from 'react';
+import Alert from 'react-s-alert';
 
 const inFavorites = (movie, favorites) => {
   return favorites
     .map(item => item.id)
     .includes(movie.id)
+}
+const alertProps = {
+  position: 'bottom-right',
+  effect: 'scale',
+  timeout: 3000
 }
 
 const FavoriteButton = (props) => {
@@ -17,7 +23,13 @@ const FavoriteButton = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    (inFavorites(movie, favorites)) ? removeFavorites(movie.id) : addFavorites(movie.id)
+    const inFav = inFavorites(movie, favorites);
+    (inFav) ? removeFavorites(movie.id) : addFavorites(movie.id);
+    const message =
+      (inFav) ?
+        `${movie.title} removed from your favorites list`:
+        `${movie.title} added to your favorites list`;
+    Alert.info(message, alertProps);
   } //impure
 
   return (

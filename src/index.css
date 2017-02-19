@@ -28,3 +28,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.s-alert-wrapper div {
+  border-radius: 3px;
+}
