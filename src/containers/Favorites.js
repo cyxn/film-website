@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-//import FavoritesList from '../components/FavoritesList';
+import FavoritesList from '../components/FavoritesList';
 import * as FilmsListActions from '../actions/FilmsListActions';
 import * as RequestActions from '../actions/RequestActions';
 
@@ -9,14 +9,16 @@ class Favorites extends Component {
 
   render() {
     return (
-        <h1>test</h1>
+      <FavoritesList {...this.props}/>
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
-    favorites: state.page.favoritesList
+    favorites: state.page.favoritesList,
+    genres: state.films.genres,
+    quantity: state.films.quantity
   }
 }
 

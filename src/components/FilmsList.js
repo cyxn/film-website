@@ -3,8 +3,6 @@ import './FilmsList.sass';
 import Movie from './Movie';
 import MySpinner from './MySpinner';
 import InfiniteScroll from 'react-infinite-scroller';
-//import { Link } from 'react-router';
-
 
 const FilmsList = ({movies, dataReady, page, RequestActions, ...rest}) => {
 

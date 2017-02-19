@@ -14,7 +14,7 @@ const MovieDetailed = (props) => {
   } = props;
 
   const {addFavorites, removeFavorites} = FilmsListActions;
-
+  //impure function
   const moreFilms = (films, text) => {
     return (
       <div>
@@ -87,8 +87,8 @@ const MovieDetailed = (props) => {
         </div>
       </div>
       <div className='more-movies'>
-        {moreFilms(similar, 'Similar')}
-        {moreFilms(recommendations, 'Recommended')}
+        {similar.length > 0 && moreFilms(similar, 'Similar')}
+        {recommendations.length > 0 && moreFilms(recommendations, 'Recommended')}
       </div>
     </div>
   )

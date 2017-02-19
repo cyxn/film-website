@@ -1,5 +1,6 @@
 import {
-  ADD_FAVORITES, REMOVE_FAVORITES, FILM_DETAIL
+  ADD_FAVORITES, REMOVE_FAVORITES,
+  FILM_DETAIL, LOAD_FAVORITES
 } from '../constants/ActionTypes';
 
 export function addFavorites(id) {
@@ -30,5 +31,11 @@ export function filmDetail(id) {
   return {
     type: FILM_DETAIL,
     id
+  }
+}
+
+export function loadFavorites() {
+  return {
+    type: LOAD_FAVORITES
   }
 }
