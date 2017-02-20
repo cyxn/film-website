@@ -1,5 +1,5 @@
 import React from 'react';
-import './FilmsList.sass';
+import '../styles/FilmsList.sass';
 import Movie from './Movie';
 import MySpinner from './MySpinner';
 import InfiniteScroll from 'react-infinite-scroller';

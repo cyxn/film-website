@@ -5,8 +5,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import MySpinner from './MySpinner';
 import { findGenreNames } from './Movie';
 import MovieImage from './MovieImage';
-import './FavoritesList.sass';
-//import taboo from '../img/taboo.jpg';
+import '../styles/FavoritesList.sass';
 
 const FavoritesList = (props) => {
   const {favorites, quantity, FilmsListActions, genres} = props;

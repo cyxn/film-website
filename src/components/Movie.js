@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Heading } from 'rebass';
 import { Link } from 'react-router';
-import './Movie.sass';
+import '../styles/Movie.sass';
 import MovieImage from './MovieImage';
 
 //TODO: image should be taken from props
