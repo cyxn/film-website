@@ -61,6 +61,7 @@ const MovieDetailed = (props) => {
         </div>
         <div className='image-section'>
           <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${currentFilm.poster_path}`}
+            style={{minHeight: '370px'}}
             width='250px'
             alt={currentFilm.original_title}/>
           <p>Rating: {currentFilm.vote_average}</p>
