@@ -60,7 +60,9 @@ const MovieDetailed = (props) => {
           </div>
         </div>
         <div className='image-section'>
-          <img src={taboo} width='250px' alt={currentFilm.original_title}/>
+          <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${currentFilm.poster_path}`}
+            width='250px'
+            alt={currentFilm.original_title}/>
           <p>Rating: {currentFilm.vote_average}</p>
         </div>
         <div className='overview'>

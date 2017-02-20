@@ -19,7 +19,7 @@ const Movie = (props) => {
     <Card style={CardStyle} width={180}>
       <Link to={singleFilmLink} className='single-movie'>
         <MovieImage {...props} />
-        <Heading size={3}>
+        <Heading style={{marginTop: '3px'}} size={3}>
           {movie.original_title}
         </Heading>
         <p>

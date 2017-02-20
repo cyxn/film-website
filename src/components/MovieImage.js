@@ -1,7 +1,5 @@
 import React from 'react';
-import { CardImage } from 'rebass';
 import FavoriteButton from './FavoriteButton';
-import taboo from '../img/taboo.jpg';
 
 const MovieImage = (props) => {
   const { favorites, movie, FilmsListActions } = props;
@@ -16,7 +14,9 @@ const MovieImage = (props) => {
       <div className='play-button'>
         <div className='play-icon'></div>
       </div>
-      <CardImage style={{borderRadius: '5px'}} src={taboo} />
+      <img style={{borderRadius: '5px'}}
+       src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+       alt={movie.title} />
     </div>
   )
 }
