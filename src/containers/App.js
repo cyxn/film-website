@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header {...this.props}/>
         {this.props.children}
         <Alert stack={{limit: 2}} />
       </div>
@@ -21,7 +21,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    films: state.films
+    search: state.films.searchResult
   }
 }
 

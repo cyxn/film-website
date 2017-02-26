@@ -1,25 +1,26 @@
 import React from 'react';
+import Search from './Search';
 import '../styles/Header.sass';
 
 import { Link } from 'react-router';
 
 const Logo = () => (
-  <Link to='/'>
+  <Link className='header-link' to='/'>
     Logo
   </Link>
 )
 
-const AppBarHeader = () => {
+const AppBarHeader = ({...rest}) => {
   return (
     <div className='header'>
       <div className='header-container'>
         <div className='logo'><Logo /></div>
-        <input className='header-search' autoComplete='off' type="text" name="search" placeholder="Search..."/>
+        <Search {...rest} />
         <div className='github-link'>
-          <a href='https://github.com/cyxn/film-website' target='_blank'>GitHub</a>
+          <a className='header-link' href='https://github.com/cyxn/film-website' target='_blank'>GitHub</a>
         </div>
         <div className='favorites'>
-          <Link to='/favorites'>Favorites</Link>
+          <Link className='header-link' to='/favorites'>Favorites</Link>
         </div>
       </div>
     </div>

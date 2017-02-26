@@ -16,7 +16,7 @@
     display: table
     clear: both
 
-.header-container a
+.header-link
   cursor: pointer
   width: 150px
   display: block
@@ -64,20 +64,35 @@
 .github-link
   float: right
 
+.search
+  position: relative
+
+.search-result
+  box-shadow: 0 0 5px rgba(0,0,0,0.5)
+  left: 165px
+  width: 350px
+
 @media screen and (max-width: 850px)
   .header-search
     margin-left: 0
     width: 200px
     &:focus
       width: 250px
+  .search-result
+    left: 151px
+    width: 250px
 
 @media screen and (max-width: 730px)
   .header-container a
     width: 120px
+  .search-result
+    left: 122px
 
 @media screen and (max-width: 630px)
   .header-container a
     width: 100px
+  .search-result
+    left: 103px
 
 @media screen and (max-width: 576px)
   .header-search
@@ -100,3 +115,8 @@
 
   .header-container a
     width: auto
+
+  .search-result
+    left: 0
+    top: 92px
+    width: 100%
