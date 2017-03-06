@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 import '../styles/Search.sass'
-
+let searchResult = null;
 export default function Search({RequestActions, search}) {
-
   const hangleChange = (event) => {
     RequestActions.searchFilms(event.target.value);
   }
   const computeClass = (action) => {
-    const searchResult = document.getElementById('search-result');
     const className = (search) => {
       return (search.length > 0) ?
         'search-result active' :
@@ -39,7 +37,7 @@ export default function Search({RequestActions, search}) {
         type="text"
         name="search"
         placeholder="Search..."/>
-      <div id='search-result' className={computeClass()}>
+      <div ref={(item => searchResult = item)} className={computeClass()}>
         {search.map((item, i) => {
           if (i > 4) return null;
           return (
@@ -55,4 +53,3 @@ export default function Search({RequestActions, search}) {
     </div>
   )
 }
-//to={`/view/${item.id}`}
