@@ -15,18 +15,15 @@ export default function page(state = initialState, action) {
   switch (type) {
     case ADD_FAVORITES:
       const newFavList =
-        (indexById(id, filmsArr) === -1) ?
-          [...state.favoritesList, currentFilm]:
-          [...state.favoritesList, filmsArr[indexById(id, filmsArr)]];
+        (indexById(id, filmsArr) === -1)
+          ? [...state.favoritesList, currentFilm]
+          : [...state.favoritesList, filmsArr[indexById(id, filmsArr)]];
       localStorage.setItem('favoritesList', JSON.stringify(newFavList));
       return {...state, favoritesList: newFavList};
 
     case REMOVE_FAVORITES:
       const index = indexById(id, state.favoritesList);
-      const newFavList2 = [
-        ...state.favoritesList.slice(0, index),
-        ...state.favoritesList.slice(index + 1)
-      ];
+      const newFavList2 = state.favoritesList.filter((item, i) => i !== index);
       localStorage.setItem('favoritesList', JSON.stringify(newFavList2));
       return {
         ...state,
