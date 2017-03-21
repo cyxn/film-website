@@ -3,7 +3,6 @@ import FavoriteButton, { inFavorites } from './FavoriteButton';
 import MySpinner from './MySpinner';
 import Movie from './Movie';
 import '../styles/MovieDetailed.sass';
-import taboo from '../img/taboo.jpg';
 
 const MovieDetailed = (props) => {
   const {

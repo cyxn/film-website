@@ -5,9 +5,8 @@ import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import createLogger from 'redux-logger'
 
-let history
 
-export default function configureStore(initialState) {
+export function configureStore(initialState) {
   const logger = createLogger();
   const store = createStore(
     rootReducer,
@@ -17,8 +16,10 @@ export default function configureStore(initialState) {
       logger
     )
   );
-  history = syncHistoryWithStore(browserHistory, store);
   return store;
 }
 
-export { history };
+export function configureHistory(store) {
+  const history = syncHistoryWithStore(browserHistory, store);
+  return history;
+}

@@ -8,9 +8,10 @@ import App from './containers/App';
 import Browse from './containers/Browse';
 import Favorites from './containers/Favorites';
 import SingleFilm from './containers/SingleFilm';
-import configureStore, { history } from './store';
+import { configureStore, configureHistory } from './store';
 
 const store = configureStore();
+const history = configureHistory(store);
 
 ReactDOM.render(
   <Provider store={store}>
