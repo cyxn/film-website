@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, Heading } from 'rebass';
 import { Link } from 'react-router';
-import '../styles/Movie.sass';
+
+import { findGenreNames } from '../utils';
 import MovieImage from './MovieImage';
+import '../styles/Movie.sass';
 
 //TODO: image should be taken from props
 const Movie = (props) => {
@@ -28,21 +30,6 @@ const Movie = (props) => {
       </Link>
     </Card>
   )
-}
-
-export function findGenreNames(movie, genres) {
-  if (typeof movie.genre_ids === 'undefined') {
-    return movie.genres
-        .map(item => item.name)
-        .join(', ');
-  }
-  return genres
-      .filter((item, i, array) => {
-        const index = movie.genre_ids.indexOf(item.id);
-        return array[index];
-      })
-      .map(item => item.name)
-      .join(', ');
 }
 
 export default Movie;

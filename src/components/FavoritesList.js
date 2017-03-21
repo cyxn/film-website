@@ -2,14 +2,15 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Button } from 'rebass';
 import InfiniteScroll from 'react-infinite-scroller';
+
 import MySpinner from './MySpinner';
-import { findGenreNames } from './Movie';
+import { findGenreNames } from '../utils';
 import MovieImage from './MovieImage';
 import '../styles/FavoritesList.sass';
 
-const FavoritesList = (props) => {
+function FavoritesList(props) {
   const {favorites, quantity, FilmsListActions, genres} = props;
-  const hasMoreItems = (favorites, quantity) => {
+  function hasMoreItems(favorites, quantity) {
     return quantity < favorites.length
   }
   return (

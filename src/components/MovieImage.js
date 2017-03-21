@@ -6,7 +6,7 @@ const imageStyle = {
   minHeight: '270px'
 }
 
-const MovieImage = (props) => {
+function MovieImage(props) {
   const { favorites, movie, FilmsListActions } = props;
   const {addFavorites, removeFavorites} = FilmsListActions;
   return (

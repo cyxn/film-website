@@ -1,8 +1,8 @@
 import React from 'react';
 import Search from './Search';
-import '../styles/Header.sass';
-
 import { Link } from 'react-router';
+
+import '../styles/Header.sass';
 
 const Logo = () => (
   <Link className='header-link' to='/'>
@@ -10,7 +10,7 @@ const Logo = () => (
   </Link>
 )
 
-const AppBarHeader = ({...rest}) => {
+function AppBarHeader({...rest}) {
   return (
     <div className='header'>
       <div className='header-container'>

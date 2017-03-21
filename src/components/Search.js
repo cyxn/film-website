@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
-import '../styles/Search.sass'
+
+import '../styles/Search.sass';
+
 let searchResult = null;
+
 export default function Search({RequestActions, search}) {
   const hangleChange = (event) => {
     RequestActions.searchFilms(event.target.value);

@@ -1,11 +1,8 @@
 import React from 'react';
 import Alert from 'react-s-alert';
 
-function inFavorites(movie, favorites) {
-  return favorites
-    .map(item => item.id)
-    .includes(movie.id)
-}
+import { inFavorites } from '../utils';
+
 const alertProps = {
   position: 'bottom-right',
   effect: 'scale',

@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/FilmsList.sass';
-import Movie from './Movie';
-import MySpinner from './MySpinner';
 import InfiniteScroll from 'react-infinite-scroller';
 
-const FilmsList = ({movies, dataReady, page, RequestActions, ...rest}) => {
+import Movie from './Movie';
+import MySpinner from './MySpinner';
+import '../styles/FilmsList.sass';
 
-  page = page || 0;
+const FilmsList = ({movies, dataReady, page = 0, RequestActions, ...rest}) => {
+
   return (
     <InfiniteScroll
         pageStart={0}
