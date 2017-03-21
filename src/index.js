@@ -18,8 +18,8 @@ ReactDOM.render(
     <Router history={history}>
       <Route path='/' component={App}>
         <IndexRoute component={Browse}/>
-        <Route path="favorites" component={Favorites} />
-        <Route path="view/:id" component={SingleFilm} />
+        <Route path='favorites' component={Favorites} />
+        <Route path='view/:id' component={SingleFilm} />
       </Route>
     </Router>
   </Provider>,

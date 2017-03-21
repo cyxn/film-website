@@ -13,27 +13,23 @@ const initialState = {
   searchResult: []
 }
 
+const redObj = {
+  [REQUEST_FILMS]: (state, action) => ({...state, isFetching: true, dataReady: false}),
+  [LOAD_FAVORITES]: (state, action) => ({...state, quantity: state.quantity + 5}),
+  [SEARCH]: (state, action) => ({...state, isSearching: true}),
+  [RECEIVE_SEARCH]: (state, action) => ({...state, isSearching: false, searchResult: action.searchResult}),
+  [RECEIVE_FILMS]: (state, action) => {
+    return Object.assign({}, state, {
+      isFetching: false,
+      dataReady: true,
+      page: action.page,
+      filmsArr: [...state.filmsArr, ...action.films]
+    })
+  },
+}
+
 export default function films(state = initialState, action) {
-  switch (action.type) {
-    case REQUEST_FILMS:
-      return {...state, isFetching: true, dataReady: false}
-    case RECEIVE_FILMS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        dataReady: true,
-        page: action.page,
-        filmsArr: [...state.filmsArr, ...action.films]
-      })
-    case LOAD_FAVORITES:
-      return {...state, quantity: state.quantity + 5}
-    case SEARCH:
-      return {...state, isSearching: true}
-    case RECEIVE_SEARCH:
-      return Object.assign({}, state, {
-        isSearching: false,
-        searchResult: action.searchResult
-      })
-    default:
-      return state;
-  }
+  const executor = redObj[action.type];
+  if (!executor) return state;
+  return executor(state, action);
 }
