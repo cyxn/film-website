@@ -1,10 +1,11 @@
 import React from 'react';
+
 import FavoriteButton, { inFavorites } from './FavoriteButton';
 import MySpinner from './MySpinner';
 import Movie from './Movie';
 import '../styles/MovieDetailed.sass';
 
-const MovieDetailed = (props) => {
+function MovieDetailed(props) {
   const {
     currentFilm, favorites,
     FilmsListActions, dataReady,
@@ -12,9 +13,9 @@ const MovieDetailed = (props) => {
     RequestActions, ...rest
   } = props;
 
-  const {addFavorites, removeFavorites} = FilmsListActions;
-  //impure function
-  const moreFilms = (films, text) => {
+  const { addFavorites, removeFavorites } = FilmsListActions;
+
+  function moreFilms(films, text) {
     return (
       <div>
         <h2 className='more-film-header'>{text}</h2>
