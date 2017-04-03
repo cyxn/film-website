@@ -8,28 +8,28 @@ import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/scale.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header {...this.props}/>
-        {this.props.children}
-        <Alert stack={{limit: 2}} />
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                <Header {...this.props} />
+                {this.props.children}
+                <Alert stack={{ limit: 2 }} />
+            </div>
+        );
+    }
 }
 
 function mapStateToProps(state) {
-  return {
-    search: state.films.searchResult
-  }
+    return {
+        search: state.films.searchResult,
+    };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    RequestActions: bindActionCreators(RequestActions, dispatch)
-  }
+    return {
+        RequestActions: bindActionCreators(RequestActions, dispatch),
+    };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 //NOTE: search things goes from here

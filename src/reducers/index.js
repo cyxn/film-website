@@ -5,8 +5,8 @@ import films from './films';
 import detailedFilm from './detailedFilm';
 
 export default combineReducers({
-  page,
-  films,
-  detailedFilm,
-  routing: routerReducer
-})
+    page,
+    films,
+    detailedFilm,
+    routing: routerReducer,
+});

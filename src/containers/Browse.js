@@ -6,28 +6,26 @@ import * as FilmsListActions from '../actions/FilmsListActions';
 import * as RequestActions from '../actions/RequestActions';
 
 class Browse extends Component {
-  render() {
-    return (
-        <FilmsList {...this.props}/>
-    )
-  }
+    render() {
+        return <FilmsList {...this.props} />;
+    }
 }
 
 function mapStateToProps(state) {
-  return {
-    movies: state.films.filmsArr,
-    dataReady: state.films.dataReady,
-    genres: state.films.genres,
-    page: state.films.page,
-    favorites: state.page.favoritesList
-  }
+    return {
+        movies: state.films.filmsArr,
+        dataReady: state.films.dataReady,
+        genres: state.films.genres,
+        page: state.films.page,
+        favorites: state.page.favoritesList,
+    };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    RequestActions: bindActionCreators(RequestActions, dispatch),
-    FilmsListActions: bindActionCreators(FilmsListActions, dispatch)
-  }
+    return {
+        RequestActions: bindActionCreators(RequestActions, dispatch),
+        FilmsListActions: bindActionCreators(FilmsListActions, dispatch),
+    };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Browse)
+export default connect(mapStateToProps, mapDispatchToProps)(Browse);

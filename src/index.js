@@ -14,14 +14,14 @@ const store = configureStore();
 const history = configureHistory(store);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path='/' component={App}>
-        <IndexRoute component={Browse}/>
-        <Route path='favorites' component={Favorites} />
-        <Route path='view/:id' component={SingleFilm} />
-      </Route>
-    </Router>
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Browse} />
+                <Route path="favorites" component={Favorites} />
+                <Route path="view/:id" component={SingleFilm} />
+            </Route>
+        </Router>
+    </Provider>,
+    document.getElementById('root')
 );
