@@ -1,9 +1,10 @@
 import React from 'react';
 
-import FavoriteButton, { inFavorites } from './FavoriteButton';
+import FavoriteButton from './FavoriteButton';
 import MySpinner from './MySpinner';
 import Movie from './Movie';
 import '../styles/MovieDetailed.sass';
+import { inFavorites } from '../utils';
 
 function MovieDetailed(props) {
     const {
@@ -117,5 +118,15 @@ function MovieDetailed(props) {
         </div>
     );
 }
+
+MovieDetailed.propTypes = {
+    RequestActions: React.PropTypes.object.isRequired,
+    FilmsListActions: React.PropTypes.object.isRequired,
+    dataReady: React.PropTypes.bool.isRequired,
+    favorites: React.PropTypes.array.isRequired,
+    recommendations: React.PropTypes.array.isRequired,
+    similar: React.PropTypes.array.isRequired,
+    currentFilm: React.PropTypes.object.isRequired,
+};
 
 export default MovieDetailed;

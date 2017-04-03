@@ -29,14 +29,14 @@ const redObj = {
     [RECEIVE_SEARCH]: (state, action) => ({
         ...state,
         isSearching: false,
-        searchResult: action.searchResult,
+        searchResult: action.payload,
     }),
     [RECEIVE_FILMS]: (state, action) => {
         return Object.assign({}, state, {
             isFetching: false,
             dataReady: true,
             page: action.page,
-            filmsArr: [...state.filmsArr, ...action.films],
+            filmsArr: [...state.filmsArr, ...action.payload],
         });
     },
 };

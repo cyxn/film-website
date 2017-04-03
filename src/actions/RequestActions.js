@@ -13,7 +13,7 @@ export function receiveFilms(json, page) {
     return {
         type: RECEIVE_FILMS,
         page,
-        films: json.results.map(item => item),
+        payload: json.results.map(item => item),
     };
 }
 
@@ -47,7 +47,7 @@ export function searchFilms(text) {
     if (text.length === 0)
         return {
             type: RECEIVE_SEARCH,
-            searchResult: [],
+            payload: [],
         };
     const link = `https://api.themoviedb.org/3/search/movie?api_key=3e8db561aa337020f5a1157b37dfd439&language=en-US&query=${text}&page=1`;
     return dispatch => {
@@ -63,7 +63,7 @@ export function searchFilms(text) {
 function receiveSearchResult(json) {
     return {
         type: RECEIVE_SEARCH,
-        searchResult: json.results,
+        payload: json.results,
     };
 }
 

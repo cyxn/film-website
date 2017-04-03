@@ -29,4 +29,10 @@ function MovieImage(props) {
     );
 }
 
+MovieImage.propTypes = {
+    FilmsListActions: React.PropTypes.object.isRequired,
+    favorites: React.PropTypes.array.isRequired,
+    movie: React.PropTypes.object.isRequired,
+};
+
 export default MovieImage;

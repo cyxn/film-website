@@ -34,4 +34,11 @@ const FilmsList = (
     );
 };
 
+FilmsList.propTypes = {
+    RequestActions: React.PropTypes.object.isRequired,
+    movies: React.PropTypes.array.isRequired,
+    dataReady: React.PropTypes.bool.isRequired,
+    page: React.PropTypes.number,
+};
+
 export default FilmsList;

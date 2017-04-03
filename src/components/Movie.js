@@ -32,4 +32,9 @@ const Movie = props => {
     );
 };
 
+Movie.propTypes = {
+    movie: React.PropTypes.object.isRequired,
+    genres: React.PropTypes.array.isRequired,
+};
+
 export default Movie;

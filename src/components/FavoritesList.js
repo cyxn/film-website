@@ -57,4 +57,11 @@ function FavoritesList(props) {
     );
 }
 
+FavoritesList.propTypes = {
+    FilmsListActions: React.PropTypes.object.isRequired,
+    favorites: React.PropTypes.array.isRequired,
+    genres: React.PropTypes.array.isRequired,
+    quantity: React.PropTypes.number.isRequired,
+};
+
 export default FavoritesList;

@@ -38,5 +38,11 @@ function FavoriteButton(props) {
     );
 }
 
-export { inFavorites };
+FavoriteButton.propTypes = {
+    addFavorites: React.PropTypes.func.isRequired,
+    removeFavorites: React.PropTypes.func.isRequired,
+    favorites: React.PropTypes.array.isRequired,
+    movie: React.PropTypes.object.isRequired,
+};
+
 export default FavoriteButton;

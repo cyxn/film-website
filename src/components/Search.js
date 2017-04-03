@@ -10,9 +10,9 @@ export default function Search({ RequestActions, search }) {
         RequestActions.searchFilms(event.target.value);
     };
     const computeClass = action => {
-        const className = search => {
-            return search.length > 0 ? 'search-result active' : 'search-result';
-        };
+        const className = search =>
+            search.length > 0 ? 'search-result active' : 'search-result';
+
         switch (action) {
             case 'focus':
                 searchResult.className = className(search);
@@ -62,3 +62,8 @@ export default function Search({ RequestActions, search }) {
         </div>
     );
 }
+
+Search.propTypes = {
+    RequestActions: React.PropTypes.object.isRequired,
+    search: React.PropTypes.array.isRequired,
+};
