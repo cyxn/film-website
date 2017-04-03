@@ -122,11 +122,11 @@ function MovieDetailed(props) {
 MovieDetailed.propTypes = {
     RequestActions: React.PropTypes.object.isRequired,
     FilmsListActions: React.PropTypes.object.isRequired,
-    dataReady: React.PropTypes.bool.isRequired,
+    dataReady: React.PropTypes.bool,
     favorites: React.PropTypes.array.isRequired,
-    recommendations: React.PropTypes.array.isRequired,
-    similar: React.PropTypes.array.isRequired,
-    currentFilm: React.PropTypes.object.isRequired,
+    recommendations: React.PropTypes.array,
+    similar: React.PropTypes.array,
+    currentFilm: React.PropTypes.object,
 };
 
 export default MovieDetailed;
